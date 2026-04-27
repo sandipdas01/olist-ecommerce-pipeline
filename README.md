@@ -1,21 +1,23 @@
 # olist-ecommerce-pipeline
-This project builds an end-to-end data pipeline for the Olist e-commerce dataset, automating raw data ingestion from source files into Snowflake, followed by data transformation using dbt, and final visualization in Power BI. Also included Airflow for Orchestration.
 
-Key Tech Stack ---
+This project builds an end-to-end data pipeline for the Olist e-commerce dataset. It automates raw data ingestion into Snowflake with Apache Airflow, transforms the data with dbt into staging, core, and mart layers, and supports analytics in Power BI.
 
-Orchestration: Apache Airflow
-Warehouse: Snowflake
-Transformation: dbt
-Visualization: Power BI
-Language: Python/SQL
+## Key Tech Stack
+- Orchestration: Apache Airflow
+- Warehouse: Snowflake
+- Transformation: dbt
+- Visualization: Power BI
+- Language: Python, SQL
 
-Pipeline Architecture:
+## Pipeline Architecture
+- Ingestion: Python-based Airflow tasks truncate raw tables and ingest CSV files into Snowflake stages.
+- Transformation: dbt models organize the data into staging, core, and mart layers.
+- Quality: Airflow checks and dbt tests validate data integrity.
 
-Ingestion: Python-based pipeline (via Airflow) to truncate raw tables and ingest CSVs into Snowflake stages.
-Transformation: dbt models (Staging → Core → Marts) for clean, business-ready data.
-Quality: Automated quality checks in Airflow and dbt tests to ensure data integrity.
-
-How to run:
-"Clone this repository."
-"Set your environment variables (Snowflake credentials)."
-"Run docker compose up to start the Airflow environment."
+## How to Run
+1. Clone this repository.
+2. Set your environment variables for Snowflake credentials.
+3. Start the Airflow environment with:
+   ```bash
+   docker compose up
+   ```

@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: mart_monthly_revenue
+    description: "Monthly revenue and order counts — used for trend analysis"
+    columns:
+      - name: year
+        tests: [not_null]
+      - name: month
+        tests: [not_null]
+      - name: total_revenue
+        tests: [not_null]
+
+  - name: mart_category_performance
+    description: "Revenue and AOV by product category"
+    columns:
+      - name: category
+        tests: [not_null, unique]
+      - name: total_revenue
+        tests: [not_null]
+
+  - name: mart_seller_kpis
+    description: "Revenue and delivery KPIs per seller"
+    columns:
+      - name: seller_id
+        tests: [not_null, unique]
+
+  - name: mart_customer_cohorts
+    description: "Lifetime value per unique customer"
+    columns:
+      - name: customer_unique_id
+        tests: [not_null, unique]

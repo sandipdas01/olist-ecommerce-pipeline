@@ -1,0 +1,23 @@
+name: 'olist'
+version: '1.0.0'
+config-version: 2
+profile: 'olist'
+
+model-paths: ["models"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+
+models:
+  olist:
+    staging:
+      +schema: OLIST
+      +database: OLIST_PROD_STAGING
+      +materialized: table
+    core:
+      +schema: OLIST
+      +database: OLIST_PROD_CORE
+      +materialized: table
+    marts:
+      +schema: OLIST
+      +database: OLIST_PROD_MARTS
+      +materialized: table
